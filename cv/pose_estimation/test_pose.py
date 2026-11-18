@@ -55,6 +55,10 @@ def main():
         cap.release()
         raise ValueError("Video has an invalid frame rate.")
 
+    if width <= 0 or height <= 0:
+        cap.release()
+        raise ValueError("Video has invalid frame dimensions.")
+
     columns = [
         "frame_index",
         "timestamp_ms",
