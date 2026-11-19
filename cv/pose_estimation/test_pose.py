@@ -25,9 +25,13 @@ KEYPOINT_NAMES = [
 ]
 
 
-def main():
+def main(video_path=None):
     project_root = Path(__file__).resolve().parents[2]
-    video_path = project_root / "samples" / "squats.mp4"
+    if video_path is None:
+        video_path = project_root / "samples" / "squats.mp4"
+    else:
+        video_path = Path(video_path)
+        
     output_dir = project_root / "runs" / "pose"
     csv_path = output_dir / "squats_keypoints.csv"
     overlay_path = output_dir / "squats_pose.mp4"
